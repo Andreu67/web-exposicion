@@ -1,9 +1,9 @@
-import avatar from "/avatar.png"
-import dribble from "/dribble.png"
-import twitter from "/twitter.png"
-import youtube from "/youtube.png"
-import { motion } from "framer-motion"
-import { useState } from "react"
+import avatar from "/avatar.png";
+import dribble from "/dribble.png";
+import twitter from "/twitter.png";
+import youtube from "/youtube.png";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const navMotion = {
   visible: {
@@ -17,27 +17,27 @@ const navMotion = {
   hidden: {
     opacity: 0,
   },
-}
+};
 const itemMotion = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 0, x: -100 },
-}
+};
 const itemMotionDesktop = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 1, x: 0 },
-}
+};
 const navLinks = [
-  { name: "Home", href: "/", id: 1 },
-  { name: "Blog", href: "/blog", id: 2 },
-  { name: "Contact", href: "/contact", id: 3 },
-]
+  { name: "Inicio", href: "/", id: 1 },
+  { name: "Sobre el Proyecto", href: "/about", id: 2 },
+  { name: "Contacto", href: "/contact", id: 3 },
+];
 
 const NavLinks = ({
   isMobile,
   className,
 }: {
-  isMobile: boolean
-  className: string
+  isMobile: boolean;
+  className: string;
 }) => (
   <div className={className}>
     {navLinks.map(({ name, href, id }) => (
@@ -50,10 +50,10 @@ const NavLinks = ({
       </motion.a>
     ))}
   </div>
-)
+);
 
 export default function Nav() {
-  const [toggled, setToggled] = useState(false)
+  const [toggled, setToggled] = useState(false);
   return (
     <nav className=" relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-32">
       <svg
@@ -68,6 +68,7 @@ export default function Nav() {
           animate={{ pathLength: 1, opacity: 1 }}
           initial={{ pathLength: 0, opacity: 0 }}
           transition={{ delay: 1, duration: 0.75 }}
+          transform="translate(-237,0)" 
           d="M2 2L428 1.99996"
           stroke="#282828"
           strokeWidth="2"
@@ -81,7 +82,9 @@ export default function Nav() {
         transition={{ delay: 0.35 }}
         className="flex gap-12"
       >
-        <img src={avatar} alt="Hua profile picture" />
+        <a href="/">
+          <img class="w-20" src={avatar} alt="Logo Mas Camarena" />
+        </a>
         <motion.div className="hidden items-center gap-12 xl:flex">
           <img src={dribble} alt="Dribble Account" />
           <img src={twitter} alt="Twitter Account" />
@@ -91,7 +94,9 @@ export default function Nav() {
       {/* Title */}
 
       <h1 className="text-lg font-bold">
-        <a href="/">Hua.</a>
+        <a className="relative right-100 top-6" href="/">
+          Exposición PEP
+        </a>
       </h1>
 
       {/* Nav Items animating in  */}
@@ -146,5 +151,5 @@ export default function Nav() {
         ></motion.span>
       </motion.div>
     </nav>
-  )
+  );
 }

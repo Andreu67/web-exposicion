@@ -1,0 +1,185 @@
+---
+import { Button } from "@nextui-org/react";
+---
+
+<!-- // Styling Requires Tailwind CSS -->
+<h1 class="relative mx-auto flex items-center justify-center pb-20 text-4xl">
+  Contáctanos ✨
+</h1>
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  id="form"
+  class="needs-validation"
+  data-astro-reload
+  novalidate
+>
+  <!-- Add your Web3Forms Access Key -->
+  <input
+    type="hidden"
+    name="access_key"
+    value="63b97b9f-386a-41e8-bc99-398666df7f2f"
+  />
+
+  <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+  <div class="mb-5">
+    <input
+      type="text"
+      placeholder="Full Name"
+      required
+      class="input w-full rounded-md border border-slate-300 px-4 py-3 outline-none ring-slate-100 placeholder:text-slate-400 focus:border-slate-600 focus:ring-4"
+      name="name"
+    />
+    <div class="empty-feedback invalid-feedback mt-1 text-sm text-red-400">
+      Please provide your full name.
+    </div>
+  </div>
+  <div class="mb-5">
+    <label for="email_address" class="sr-only">Email Address</label><input
+      id="email_address"
+      type="email"
+      placeholder="Email Address"
+      name="email"
+      required
+      class="input w-full rounded-md border border-slate-300 px-4 py-3 outline-none ring-slate-100 placeholder:text-slate-400 focus:border-slate-600 focus:ring-4"
+    />
+    <div class="empty-feedback mt-1 text-sm text-red-400">
+      Please provide your email address.
+    </div>
+    <div class="invalid-feedback mt-1 text-sm text-red-400">
+      Please provide a valid email address.
+    </div>
+  </div>
+  <div class="mb-5">
+    <input
+      type="text"
+      placeholder="Subject"
+      required
+      class="input w-full rounded-md border border-slate-300 px-4 py-3 outline-none ring-slate-100 placeholder:text-slate-400 focus:border-slate-600 focus:ring-4"
+      name="subject"
+    />
+    <div class="empty-feedback invalid-feedback mt-1 text-sm text-red-400">
+      Please provide a subject.
+    </div>
+  </div>
+  <div class="mb-3">
+    <textarea
+      name="message"
+      required
+      placeholder="Your Message"
+      class="input h-36 w-full rounded-md border border-slate-300 px-4 py-3 outline-none ring-slate-100 placeholder:text-slate-400 focus:border-slate-600 focus:ring-4"
+    ></textarea>
+    <div class="empty-feedback invalid-feedback mt-1 text-sm text-red-400">
+      Please enter your message.
+    </div>
+  </div>
+  <div class="button-container">
+    <Button color="success" variant="shadow" class="button" className=" hover:bg-button_dark text-white font-bold py-2 px-4 transition duration-300 transform hover:scale-110" type="submit" size="lg" block>Send Message</Button>
+  </div>
+  <div id="result" class="mt-3 text-center"></div>
+</form>
+
+<style>
+  .invalid-feedback,
+  .empty-feedback {
+    display: none;
+  }
+
+  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+    display: block;
+  }
+
+  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .is-invalid,
+  .was-validated :invalid {
+    border-color: #dc3545;
+  }
+
+  .button-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .button {
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: calc(100% - 40px); /* Adjust width */
+    padding: 10px; /* Add padding */
+  }
+
+  .input {
+    width: 70%;
+    position: relative;
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<script is:inline>
+  // astro:page-load to support view Transitions.
+  // use DOMContentLoaded event if you are not using View Transitions
+
+  document.addEventListener(
+    "astro:page-load",
+    () => {
+      const form = document.getElementById("form");
+      const result = document.getElementById("result");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.classList.add("was-validated");
+        if (!form.checkValidity()) {
+          form.querySelectorAll(":invalid")[0].focus();
+          return;
+        }
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        result.innerHTML = "Sending...";
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.classList.add("text-green-500");
+              result.innerHTML = json.message;
+            } else {
+              console.log(response);
+              result.classList.add("text-red-500");
+              result.innerHTML = json.message;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+          })
+          .then(function () {
+            form.reset();
+            form.classList.remove("was-validated");
+            setTimeout(() => {
+              result.style.display = "none";
+            }, 5000);
+          });
+      });
+    },
+    { once: true }
+  );
+</script>

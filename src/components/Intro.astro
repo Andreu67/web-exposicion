@@ -1,6 +1,6 @@
 ---
-import portrait from "/main-portrait.jpg"
-import paint from "/paint.png"
+import portrait from "/main-portrait.jpeg";
+import paint from "/paint.png";
 ---
 
 <div
@@ -8,9 +8,7 @@ import paint from "/paint.png"
 >
   <div class="w-full xl:w-1/2">
     <h1 class="text-xl">
-      Enter Hua's Doodle-Dazzled <span id="scribble" class="font-bold"
-        >Digital Universe!</span
-      >
+      Hola <span id="scribble" class="font-bold">Bienvenido!</span>
     </h1>
 
     <div class="relative">
@@ -30,17 +28,14 @@ import paint from "/paint.png"
           stroke-width="4"></path>
       </svg>
       <p id="anim-p" class="p-6 text-main">
-        You've stumbled upon <span class="font-bold text-primary">Hua's</span> little
-        corner of the internet, where creativity runs rampant and normal is just
-        a setting on a washing machine.<br />
+        Somos <span class="font-bold text-primary"
+          >Andreu A., Nerea, Pablo, Andreu G.</span
+        > Y este es nuestro proyecto de la exposición del PEP.<br />
         <br />
-        Stick around, explore the digital masterpieces, and enjoy the occasional
-        artistic shenanigans. It's more fun than you'd think!
+        Este proyecto va sobre la distribuición de la riqueza que afecta al acceso de las comunidades y los individuos a la igualdad de oportunidades.
         <br />
         <br />
-        Delight in the unpredictable artistic shenanigans that burst forth from the
-        canvas of this digital universe. Here, every visit is an adventure, every
-        glance an exploration. Dive in, the pixels are warm!
+        Si ahora os cuesta entender el concepto, no os preocupéis, os lo vamos a explicar.
       </p>
     </div>
     <div
@@ -62,13 +57,10 @@ import paint from "/paint.png"
   </div>
 
   <div class="relative">
-    <img class="h-full" src={portrait} alt="Hua's portrait" />
-    <div id="paint" class="absolute bottom-0 right-0 translate-y-1/4">
-      <img src={paint} alt="paint" />
-    </div>
+    <img class="h-full rounded-2xl" src={portrait} alt="Hua's portrait" />
   </div>
 </div>
-<div class="mt-12 h-6 w-full bg-black"></div>
+<div class="mt-12 h-6 w-full bg-white"></div>
 
 <style>
   #border-path {
@@ -84,8 +76,8 @@ import paint from "/paint.png"
 
 <script>
   function updatePath() {
-    const textMain = document.querySelector("#anim-p") as HTMLElement
-    const path = document.querySelector("#border-path") as SVGPathElement
+    const textMain = document.querySelector("#anim-p") as HTMLElement;
+    const path = document.querySelector("#border-path") as SVGPathElement;
 
     if (textMain && path) {
       path.setAttribute(
@@ -93,11 +85,11 @@ import paint from "/paint.png"
         `M0,0 V${textMain.offsetHeight} H${textMain.offsetWidth} v${
           textMain.offsetHeight / 2
         }`
-      )
-      const pathLength = path.getTotalLength()
+      );
+      const pathLength = path.getTotalLength();
 
-      path.style.strokeDasharray = pathLength.toString()
-      path.style.strokeDashoffset = pathLength.toString()
+      path.style.strokeDasharray = pathLength.toString();
+      path.style.strokeDashoffset = pathLength.toString();
     }
   }
 
@@ -109,23 +101,23 @@ import paint from "/paint.png"
     duration: number,
     letter: string = ""
   ) {
-    let counter = document.getElementById(selector)
-    let stepTime = Math.abs(Math.floor(duration / target))
+    let counter = document.getElementById(selector);
+    let stepTime = Math.abs(Math.floor(duration / target));
     if (current < target && counter) {
-      current++
-      counter.innerText = current.toString() + letter
+      current++;
+      counter.innerText = current.toString() + letter;
       setTimeout(
         () => incrementCounter(selector, current, target, duration, letter),
         stepTime
-      )
+      );
     }
   }
-  incrementCounter("art-counter", 0, 85, 1000)
-  incrementCounter("youtube-counter", 0, 328, 1000, "k")
-  incrementCounter("reviews-counter", 0, 250, 1000)
+  incrementCounter("art-counter", 0, 85, 1000);
+  incrementCounter("youtube-counter", 0, 328, 1000, "k");
+  incrementCounter("reviews-counter", 0, 250, 1000);
 
   // Update the path when the page loads
-  window.addEventListener("DOMContentLoaded", updatePath)
+  window.addEventListener("DOMContentLoaded", updatePath);
   // Update the path when the window is resized
-  window.addEventListener("resize", updatePath)
+  window.addEventListener("resize", updatePath);
 </script>
