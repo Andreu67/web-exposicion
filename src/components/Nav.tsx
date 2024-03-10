@@ -83,7 +83,7 @@ export default function Nav() {
         className="flex gap-12"
       >
         <a href="/">
-          <img class="w-20" src={avatar} alt="Logo Mas Camarena" />
+          <img className="w-20" src={avatar} alt="Logo Mas Camarena" />
         </a>
         <motion.div className="hidden items-center gap-12 xl:flex">
           <img src={dribble} alt="Dribble Account" />
