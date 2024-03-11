@@ -93,7 +93,7 @@ export default function Nav() {
       </motion.div>
       {/* Title */}
 
-      <h1 className="text-lg font-bold relative left-10">
+      <h1 className="text-lg font-bold">
         <a className="relative right-100 top-6" href="/">
           Exposición PEP
         </a>
