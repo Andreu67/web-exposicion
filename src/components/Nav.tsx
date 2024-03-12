@@ -1,7 +1,7 @@
 import avatar from "/avatar.png";
-import dribble from "/dribble.png";
-import twitter from "/twitter.png";
-import youtube from "/youtube.png";
+import facebook from "/facebook.svg";
+import twitter from "/twitter.svg";
+import instagram from "/instagram.svg";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -28,7 +28,7 @@ const itemMotionDesktop = {
 };
 const navLinks = [
   { name: "Inicio", href: "/", id: 1 },
-  { name: "Sobre el Proyecto", href: "/about", id: 2 },
+  { name: "Información", href: "/information", id: 2 },
   { name: "Contacto", href: "/contact", id: 3 },
 ];
 
@@ -55,9 +55,9 @@ const NavLinks = ({
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
   return (
-    <nav className=" relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-32">
+    <nav className="relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-14 lg:mx-32">
       <svg
-        className="absolute bottom-0 left-1/2 -translate-x-1/2  "
+        className="absolute bottom-0 left-1/2 -translate-x-1/3 md:-translate-x-1/3 lg:-translate-x-1/2"
         width="250"
         height="4"
         viewBox="0 0 250 4"
@@ -83,18 +83,18 @@ export default function Nav() {
         className="flex gap-12"
       >
         <a href="/">
-          <img class="w-20" src={avatar} alt="Logo Mas Camarena" />
+          <img className="w-20" src={avatar} alt="Logo Mas Camarena" />
         </a>
         <motion.div className="hidden items-center gap-12 xl:flex">
-          <img src={dribble} alt="Dribble Account" />
-          <img src={twitter} alt="Twitter Account" />
-          <img src={youtube} alt="Youtube Channel" />
+          <a href="https://www.facebook.com/ComplejoEducativoMCamarena"><img src={facebook} alt="Facebook Account" /></a>
+          <a href="https://twitter.com/C_Mas_Camarena"><img src={twitter} alt="Twitter Account" /></a>
+          <a href="https://www.instagram.com/ColegioMasCamarena"><img src={instagram} alt="Instagram Account" /></a>
         </motion.div>
       </motion.div>
       {/* Title */}
 
       <h1 className="text-lg font-bold">
-        <a className="relative right-100 top-6" href="/">
+        <a className="relative sm:relative sm:right-50 top-6" href="/">
           Exposición PEP
         </a>
       </h1>
@@ -109,7 +109,7 @@ export default function Nav() {
           w-full flex-col items-center  justify-center  gap-24 bg-white text-2xl font-bold"
         >
           <NavLinks
-            className=" flex flex-col gap-24 text-lg "
+            className="flex flex-col gap-24 text-lg "
             isMobile={true}
           />
         </motion.div>
@@ -118,7 +118,7 @@ export default function Nav() {
         animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: 25 }}
         transition={{ delay: 0.35 }}
-        className="hidden xl:flex xl:items-center  xl:justify-center xl:gap-12 xl:text-lg   "
+        className="hidden xl:flex xl:items-center xl:justify-center xl:gap-12 xl:text-lg   "
       >
         <NavLinks className="flex gap-12" isMobile={false} />
       </motion.div>
