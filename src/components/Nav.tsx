@@ -86,9 +86,9 @@ export default function Nav() {
           <img className="w-20" src={avatar} alt="Logo Mas Camarena" />
         </a>
         <motion.div className="hidden items-center gap-12 xl:flex">
-          <img src={dribble} alt="Dribble Account" />
-          <img src={twitter} alt="Twitter Account" />
-          <img src={youtube} alt="Youtube Channel" />
+          <img className="hidden" src={dribble} alt="Dribble Account" />
+          <img className="hidden" src={twitter} alt="Twitter Account" />
+          <img className="hidden" src={youtube} alt="Youtube Channel" />
         </motion.div>
       </motion.div>
       {/* Title */}
