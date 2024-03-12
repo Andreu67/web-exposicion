@@ -85,14 +85,11 @@ export default function Nav() {
         <a href="/">
           <img className="w-20" src={avatar} alt="Logo Mas Camarena" />
         </a>
-<<<<<<< HEAD
         <motion.div className="hidden items-center gap-12 xl:flex">
           <img src={dribble} alt="Dribble Account" />
           <img src={twitter} alt="Twitter Account" />
           <img src={youtube} alt="Youtube Channel" />
         </motion.div>
-=======
->>>>>>> parent of 9e47177... hide social icons
       </motion.div>
       {/* Title */}
 
