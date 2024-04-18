@@ -1,128 +1,16 @@
 ---
 import MainLayout from "../layouts/main-layout.astro"
-import GoogleSlides from "../components/GoogleSlides.astro"
+
 ---
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <link rel="icon" href="/favicon.png" sizes="32x32"/>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" sizes="32x32" />
     <title>Exposicion PEP - Información</title>
-    <style>
-        .slides-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-        }
+  </head>
+  <body
+    ><MainLayout>
 
-        .slides-container  iframe{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .logo-image {
-            padding: 10px;
-            position: absolute;
-            bottom: -130px;
-            left: 50px;
-            border-radius: 30px;
-        }
-
-        .description-agencia {
-            position: absolute;
-            bottom: -80px;
-            right: 100px;
-            font-size: 25px;
-            max-width: 600px;
-        }
-
-        /* Mobile styles */
-        @media (max-width: 768px) {
-            .slides-container {
-                padding-bottom: 75%; /* 4:3 Aspect Ratio */
-                width: 300px;
-            }
-
-            .logo-image {
-                position: static;
-                bottom: auto;
-                left: auto;
-                margin: 0 auto;
-            }
-
-            .description-agencia {
-                position: absolute;
-                bottom: -330px;
-                left: 0;
-                right: 0;
-                font-size: 20px;
-                max-width: 70%;
-                text-align: center;
-                padding-top: 200px; /* Adjust this value as needed */
-                margin: auto;
-            }
-
-            .relative.flex.flex-col.items-center.justify-center.h-screen {
-                flex-direction: column;
-            }
-            .agency-section {
-                position: relative;
-                top: -580px; /* Adjust this value as needed */
-            }
-        }
-
-        /* Tablet styles */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .slides-container {
-                padding-bottom: 67.5%; /* 3:2 Aspect Ratio */
-            }
-
-            .logo-image {
-                left: 30px;
-            }
-
-            .description-agencia {
-                right: 70px;
-                font-size: 22px;
-                max-width: 80%;
-            }
-        }
-
-        /* Desktop styles */
-        @media (min-width: 1025px) {
-            .slides-container {
-                padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            }
-
-            .logo-image {
-                left: 50px;
-            }
-
-            .description-agencia {
-                right: 100px;
-                font-size: 25px;
-                max-width: 600px;
-            }
-        }
-    </style>
-</head>
-<body>
-<MainLayout>
-    <div class="relative flex flex-col items-center justify-center h-screen">
-        <h1 class="z-10 text-4xl mb-15 pb-20">Nuestra Presentación</h1>
-        <div class="slides-container">
-        <GoogleSlides/>
-        </div>
-    </div>
-    <div class="relative flex flex-col items-center justify-center h-screen agency-section">
-        <h1 class="z-10 text-4xl mb-15 pb-20">Nuestra Agencia</h1>
-        <img src="/Logo_GUP.jpeg" alt="Logo GUP" class="logo-image"/>
-        <p class="description-agencia">La agencia es una de las partes de la exposición del PEP y consta de hacer algo que afecte al mundo y qué este relacionado con el tema que hemos elegido. En este caso el tema que hemos elegido es la distribuición de la riqueza que afecta al acceso de las comunidades y los individuos a la igualdad de oportunidades, hemos escogido la ONG GUP porque nuestra profesora de francés colabora con esta organización y nos la recomendó. Esta ONG ayuda a familias en Senegal y también en València y hemos colaborado con ellos para hacer una recogida de productos de higiene para las familias necesitadas de València</p>
-    </div>
-</MainLayout>
-</body>
+    </MainLayout>
+  </body>
 </html>
