@@ -1,3 +1,22 @@
 ---
-$END$
+// GoogleSlides.astro
 ---
+
+<div>
+    <!-- Paste your iframe code here -->
+    <iframe class="desktop-slides" src="https://docs.google.com/presentation/d/12auY15VKRZVmdxQXr91D0zqHrOyHSQmiAZ_1iG031z4/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <!-- End iframe code -->
+    <a href="https://docs.google.com/presentation/d/12auY15VKRZVmdxQXr91D0zqHrOyHSQmiAZ_1iG031z4/edit" target="_blank" class="text-blue-500">Toca aquí para ver la presentacion</a>
+</div>
+
+<style>
+@media (max-width: 768px) {
+    .desktop-slides {
+        display: none;
+    }
+
+    .mobile-slides {
+        display: block;
+    }
+}
+</style>
