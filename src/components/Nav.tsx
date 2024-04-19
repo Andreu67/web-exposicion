@@ -56,26 +56,6 @@ export default function Nav() {
   const [toggled, setToggled] = useState(false);
   return (
     <nav className="relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-14 lg:mx-32">
-      <svg
-        className="absolute bottom-0 left-1/2 -translate-x-1/3 md:-translate-x-1/3 lg:-translate-x-1/2"
-        width="250"
-        height="4"
-        viewBox="0 0 250 4"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          animate={{ pathLength: 1, opacity: 1 }}
-          initial={{ pathLength: 0, opacity: 0 }}
-          transition={{ delay: 1, duration: 0.75 }}
-          transform="translate(-237,0)" 
-          d="M2 2L428 1.99996"
-          stroke="#282828"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-
       <motion.div
         animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -25 }}
