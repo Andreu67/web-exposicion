@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/main-layout.astro"
+
 ---
 <html>
 <head>
@@ -59,7 +60,7 @@ import MainLayout from "../layouts/main-layout.astro"
 
             .slides-text {
                 position: absolute;
-                bottom: 720px;
+                bottom: 800px;
                 font-size: 30px;
             }
 
@@ -72,7 +73,7 @@ import MainLayout from "../layouts/main-layout.astro"
 
             .description-agencia {
                 position: absolute;
-                bottom: -260px;
+                bottom: -1500px;
                 left: 0;
                 right: 0;
                 font-size: 20px;
@@ -91,12 +92,12 @@ import MainLayout from "../layouts/main-layout.astro"
               font-size: 30px;
                 display: block;
                 position: absolute;
-                top: -120px; /* Adjust this value to set the distance from the top edge of the nearest positioned ancestor */
+                top: -10px; /* Adjust this value to set the distance from the top edge of the nearest positioned ancestor */
             }
         }
 
         /* Tablet styles */
-        @media (min-width: 769px) and (max-width: 1024px) {
+        @media (min-width: 768px) and (max-width: 1024px) {
             .slides-container {
                 padding-bottom: 67.5%; /* 3:2 Aspect Ratio */
             }
@@ -111,12 +112,14 @@ import MainLayout from "../layouts/main-layout.astro"
             }
 
             .description-agencia {
-                bottom: 120px;
-                right: 20px;
-                font-size: 22px;
+                position: absolute;
+                bottom: 90px; /* Adjust this value as needed */
+                right: 100px; /* Adjust this value as needed */
+                font-size: 20px;
                 max-width: 40%;
+                -webkit-transform: translate(90px, 50px);
+                transform: translate(50px, 50px);
             }
-
             .text-agencia {
                 position: absolute;
                 top: 20px; /* Adjust this value to set the distance from the top edge of the nearest positioned ancestor */
@@ -142,9 +145,9 @@ import MainLayout from "../layouts/main-layout.astro"
 
             .description-agencia {
                 bottom: 225px;
-                right: 120px;
+                right: 1/2px;
                 font-size: 22px;
-                max-width: 40%;
+                max-width: 80%;
             }
 
             .text-agencia {
@@ -169,7 +172,7 @@ import MainLayout from "../layouts/main-layout.astro"
     </div>
     <div class="relative flex flex-col items-center justify-center h-screen agency-section">
         <h1 class="z-10 text-4xl mb-15 pb-20 text-agencia">Nuestra Agencia</h1>
-        <img src="/Logo_GUP.jpeg" alt="Logo GUP" class="logo-image"/>
+        <img src="/Logo_GUP.jpeg" alt="Logo GUP" class="logo-image m-2"/>
         <p class="description-agencia">La agencia es una de las partes de la exposición del PEP y consta de hacer algo
             que afecte al mundo y qué este relacionado con el tema que hemos elegido. En este caso el tema que hemos
             elegido es la distribuición de la riqueza que afecta al acceso de las comunidades y los individuos a la
@@ -180,5 +183,21 @@ import MainLayout from "../layouts/main-layout.astro"
     </div>
 </MainLayout>
 <br/>
+
+<script>
+    window.addEventListener('resize', function() {
+        var width = window.innerWidth;
+        var descriptionAgencia = document.querySelector('.description-agencia');
+
+        if (width >= 768 && width <= 1024) { // iPad screen size
+            descriptionAgencia.style.bottom = '5000px'; // Adjust these values as needed
+            descriptionAgencia.style.right = '50px'; // Adjust these values as needed
+        } else {
+            // Reset to default values for other screen sizes
+            descriptionAgencia.style.bottom = '-80px';
+            descriptionAgencia.style.right = '100px';
+        }
+    });
+</script>
 </body>
 </html>
